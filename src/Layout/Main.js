@@ -7,6 +7,9 @@ const Main = () => {
     return (
         <div>
             <Header></Header>
+            <div>
+                <marquee><h1 className='text-4xl font-bold text-orange-600'>DISCOUNT :  UP TO 50% OFF</h1></marquee>
+            </div>
             <Outlet></Outlet>
             <Footer></Footer>
         </div>

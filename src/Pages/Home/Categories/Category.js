@@ -13,7 +13,7 @@ const Category = ({ category }) => {
                 <p>{description}</p>
                 <div className="card-actions justify-center">
                     <Link to={`/category/${brand}`}>
-                        <button className="btn btn-secondary">Book Now</button>
+                        <button className="btn btn-secondary">View All</button>
                     </Link>
                 </div>
             </div>

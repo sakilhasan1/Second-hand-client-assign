@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import BuyModal from './BuyModal';
 import Phone from './Phone';
 
 const Phones = () => {
     const phones = useLoaderData()
-    console.log(phones);
+
+    const [modalData, setModalData] = useState({})
+
     return (
         <section>
 
@@ -13,10 +16,17 @@ const Phones = () => {
                     phones?.map(phone => <Phone
                         key={phone._id}
                         phone={phone}
+                        setModalData={setModalData}
+
                     ></Phone>)
                 }
             </div>
-
+            {
+                modalData && <BuyModal
+                    modalData={modalData}
+                    setModalData={setModalData}
+                ></BuyModal>
+            }
         </section>
     );
 };

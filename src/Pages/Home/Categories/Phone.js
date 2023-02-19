@@ -1,8 +1,8 @@
 import React from 'react';
 
-const phone = ({ phone }) => {
+const phone = ({ phone, setModalData }) => {
     const {
-        brand, image,
+        brand, product, image,
         location, originalPrice,
         resalePrice, seller,
         useTime, whenItPosted
@@ -16,6 +16,7 @@ const phone = ({ phone }) => {
                     {brand}
                     <div className="badge badge-secondary">NEW</div>
                 </h2>
+                <p>product: {product}</p>
                 <p>Location : {location}</p>
                 <p>OriginalPrice: {originalPrice}</p>
                 <p>ResalePrice : {resalePrice}</p>
@@ -23,8 +24,7 @@ const phone = ({ phone }) => {
                 <p>UseTime : {useTime}</p>
                 <p>WhenItPosted : {whenItPosted}</p>
                 <div className="card-actions justify-center">
-                    <button className="btn btn-secondary">Bye Now</button>
-
+                    <label onClick={() => setModalData(phone)} htmlFor="my-modal-3" className="btn btn-secondary">Bye Now</label>
                 </div>
             </div>
         </div>
