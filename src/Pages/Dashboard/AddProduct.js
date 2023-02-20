@@ -62,7 +62,7 @@ const AddProduct = () => {
     return (
         <div className='h-[500] flex justify-center '>
 
-            <div className='w-96 shadow-xl p-12'>
+            <div className='w-[124] shadow-xl p-12'>
                 <form onSubmit={handleAddProduct} >
 
                     <section className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
@@ -87,11 +87,6 @@ const AddProduct = () => {
                             </label>
                             <input name='product' type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
 
-
-                            <label className="label">
-                                <span className="label-text-alt">Image</span>
-                            </label>
-                            <input name='image' type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
 
                             <label className="label">
                                 <span className="label-text-alt">Location</span>
@@ -120,13 +115,18 @@ const AddProduct = () => {
                             <input name='useTime' type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
 
                             <label className="label">
-                                <span className="label-text-alt"> WhenItPosted</span>
+                                <span className="label-text-alt"> When It Posted</span>
                             </label>
                             <input name='whenItPosted' type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
 
                         </div>
                     </section>
-                    <button className='btn btn-secondary my-4 w-full max-w-xs' >ADD PRODUCT</button>
+                    <label className="label">
+                        <span className="label-text-alt">Image</span>
+                    </label>
+                    <input name='image' type="text" placeholder="image" className="input input-bordered w-full max-w-sm mx-5" />
+
+                    <button className='btn btn-secondary my-4 w-full ' >ADD PRODUCT</button>
 
                 </form>
             </div>

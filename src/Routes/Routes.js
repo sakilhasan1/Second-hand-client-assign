@@ -13,6 +13,7 @@ import Phones from "../Pages/Home/Categories/Phones";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
 import Payment from "../Pages/Payment/Payment";
+import DisplayError from "../Shared/DisplayError/DisplayError";
 import Signup from "../Shared/SignUp/Signup";
 import PrivateRoute from "./PrivateRoute";
 
@@ -20,6 +21,7 @@ export const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <DisplayError></DisplayError>,
         children: [
             {
                 path: '/',
@@ -56,6 +58,7 @@ export const router = createBrowserRouter([
     {
         path: '/dashboardLayout',
         element: <DashboardLayout></DashboardLayout>,
+        errorElement: <DisplayError></DisplayError>,
         children: [
             {
                 path: '/dashboardLayout/dashboard',

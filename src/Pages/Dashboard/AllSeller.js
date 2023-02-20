@@ -36,6 +36,7 @@ const AllSeller = () => {
                         <tr>
                             <th>No</th>
                             <th>Name</th>
+                            <th>Product</th>
                             <th>Email</th>
                             <th>Delete</th>
 
@@ -46,6 +47,7 @@ const AllSeller = () => {
                             AllSeller.map((seller, index) => <tr>
                                 <th>{index + 1}</th>
                                 <td>{seller.seller}</td>
+                                <td>{seller.product}</td>
                                 <td>{user?.email}</td>
                                 <td><button onClick={() => handleDelete(seller._id)} className='btn btn-xs'>Delete</button></td>
                             </tr>

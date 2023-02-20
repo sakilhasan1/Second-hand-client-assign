@@ -18,8 +18,8 @@ const phone = ({ phone, setModalData }) => {
                 </h2>
                 <p>product: {product}</p>
                 <p>Location : {location}</p>
-                <p>OriginalPrice: {originalPrice}</p>
-                <p>ResalePrice : {resalePrice}</p>
+                <p>OriginalPrice: ${originalPrice}</p>
+                <p>ResalePrice : ${resalePrice}</p>
                 <p>Seller : {seller}</p>
                 <p>UseTime : {useTime}</p>
                 <p>WhenItPosted : {whenItPosted}</p>
