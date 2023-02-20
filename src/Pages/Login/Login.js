@@ -22,8 +22,8 @@ const Login = () => {
         login(data.email, data.password)
             .then(result => {
                 const user = result.user;
-                navigate(from, { replace: true });
-
+                const email = user.email;
+                getToken(email)
 
             })
             .catch(error => console.log(error))
@@ -34,10 +34,28 @@ const Login = () => {
         providerLogin(googleProvider)
             .then(result => {
                 const user = result.user
-                navigate(from, { replace: true })
+                const email = user.email;
+                getToken(email)
+
             })
             .then(err => console.log(err))
     }
+
+    const getToken = (email) => {
+
+        fetch(`http://localhost:5000/jwt?email=${email}`)
+            .then(res => res.json())
+            .then(data => {
+
+                if (data.accessToken) {
+                    localStorage.setItem('accessToken', data.accessToken)
+                    navigate(from, { replace: true });
+                }
+
+
+            })
+    }
+
 
     return (
         <div className='h-500 flex justify-center my-10'>

@@ -5,12 +5,14 @@ import Blog from "../Pages/Blog/Blog";
 import AddProduct from "../Pages/Dashboard/AddProduct";
 import AllBuyer from "../Pages/Dashboard/AllBuyer";
 import AllSeller from "../Pages/Dashboard/AllSeller";
+import AllUser from "../Pages/Dashboard/AllUser";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import MyOrders from "../Pages/Dashboard/MyOrders";
 import Categories from "../Pages/Home/Categories/Categories";
 import Phones from "../Pages/Home/Categories/Phones";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
+import Payment from "../Pages/Payment/Payment";
 import Signup from "../Shared/SignUp/Signup";
 import PrivateRoute from "./PrivateRoute";
 
@@ -74,6 +76,15 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboardLayout/allBuyer',
                 element: <AllBuyer></AllBuyer>
+            },
+            {
+                path: '/dashboardLayout/payment/:id',
+                element: <Payment></Payment>,
+                loader: ({ params }) => fetch(`http://localhost:5000/orders/${params.id}`)
+            },
+            {
+                path: '/dashboardLayout/allUser',
+                element: <AllUser></AllUser>
             },
 
         ]

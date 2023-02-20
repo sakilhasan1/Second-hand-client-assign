@@ -2,36 +2,71 @@
 
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 
 const Signup = () => {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const { signup, updateUser } = useContext(AuthContext)
+
     const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || "/";
+
 
     const handleSignup = data => {
-        console.log(data);
+
 
         signup(data.email, data.password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+
 
                 const userInfo = {
                     displayName: data.name
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        navigate('/')
+                        console.log();
+                        saveUser(data.name, data.email)
+                        getToken(data.email)
                     })
-
-
             })
             .catch(error => console.log(error))
     }
 
+
+    const saveUser = (name, email) => {
+        const user = { name, email };
+
+        fetch('http://localhost:5000/users', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+
+            })
+    }
+    const getToken = (email) => {
+
+        fetch(`http://localhost:5000/jwt?email=${email}`)
+            .then(res => res.json())
+            .then(data => {
+
+                if (data.accessToken) {
+                    localStorage.setItem('accessToken', data.accessToken)
+                    navigate(from, { replace: true });
+                }
+
+
+            })
+    }
     return (
         <div className='h-500 flex justify-center my-10'>
             <div className='w-96 p-6 shadow-lg rounded-lg'>
